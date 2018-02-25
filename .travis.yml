@@ -1,0 +1,11 @@
+language: java
+
+jdk:
+  - oraclejdk8
+
+env:
+  - secure: "DIUKdEr0oKjz+miMAQOKwA3tuQgXgMfPpFszoKAzHXFAq/OnSGZUXEhtEwJ0/07YG+nzK4d8NX8/zTIGnp75YqdGbn/Q9MjS1337dyjdLIc21whwAMN0LgTZro64VAqN8nhB+P3BIWm03LLhzHCJR6YbJhs3Zu6bqy8ZoEtPAoJsSKRl8Y2cEy8l2UiARkd1DQxcEo5EtUaQdIhB1gtU8ZJpJHfWZOYUzJfH+y58HoD7rd4kTui//okh3ROF7pudgyi8CMceJ4TCTHvx0gMZOHvFYlCgh+dafLfyeOySsRpmRrDE1YXa8pPXwEBQVZj4SxOpVeni3Wod3713O0oWIwNhZxBSA2v5zkb94ZyuvsXLiwb54gyvTVWrFp7b6dp32dHRplJbyCWQhDjguGQ4+PygQIFlMRU75w0PnyBKzQjdZzqHX/sJgbtgoLmSDpPXGW3deWgYuqps3ZGW1ik/vVAKY9yDgMX7uVQdp/j6VvpHHtpLSFkqCpUf9zSdzbQk5N+7Vq5vdqJnV2G8cgQ3V5sPkhz1t2J1AuMueu+tcI5RkEMAxQqfDgWl/XoHk8ticcjLmBe4kGNgl9IFgQxz6OiKjKpNB7XiwFVSoKFK8m9jDUbtpq0lcCbNTY1UVAaDp/kVgg4nWdsGXk6PQGiokxcWHIyER7Zsf3xSwf/KKiU="
+
+cache:
+  directories:
+  - $HOME/.m2

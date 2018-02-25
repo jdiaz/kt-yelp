@@ -33,5 +33,11 @@ kt-yelp supports async HTTP GET requests by employing the [kotlin-futures](https
  }
 ```
 
-Tests are require the -Dyelpkey jvm property to run.
- `gradle -Dyelpkey=<YOUR_API_KEY test`
+More examples will be added later.
+
+## Tests
+
+Testing locally requires the `-Dyelpkey`jvm property set to run.
+ `gradle -Dyelpkey=<YOUR_API_KEY test>`
+ 
+Remote travis builds fetch the encrypted key from the `.travis.yml` file 

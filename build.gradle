@@ -64,7 +64,8 @@ test {
 
 afterEvaluate {
     def junitPlatformTestTask = tasks.getByName('junitPlatformTest')
-    junitPlatformTestTask.systemProperty "yelpkey", System.getProperty("yelpkey")
+    def yelpkey = System.getProperty("yelpkey") ?: System.getenv("yelpkey")
+    junitPlatformTestTask.systemProperty "yelpkey", yelpkey
 }
 
 dependencies {
