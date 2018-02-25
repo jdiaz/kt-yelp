@@ -2,34 +2,48 @@ group 'io.github.jdiaz'
 version '0.1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.1.2-5'
+    ext.kotlin_version = '1.2.21'
 
     repositories {
-        mavenCentral()
         maven { url 'https://jitpack.io' }
         maven { url 'http://dl.bintray.com/jetbrains/spek'}
+        jcenter()
     }
     dependencies {
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath 'org.junit.platform:junit-platform-gradle-plugin:1.0.0'
     }
 }
 
-
 apply plugin: 'kotlin'
 
-
 repositories {
-    mavenCentral()
     maven { url 'https://jitpack.io' }
     maven { url 'http://dl.bintray.com/jetbrains/spek'}
-
+    jcenter()
 }
 
+sourceCompatibility = 1.8
+
+compileKotlin {
+    kotlinOptions {
+        apiVersion = "1.1"
+        jvmTarget = "1.8"
+    }
+}
+
+compileTestKotlin {
+    kotlinOptions {
+        apiVersion = "1.1"
+        jvmTarget = "1.8"
+    }
+}
+
+
 dependencies {
-    compile 'com.github.vjames19.kotlin-futures:kotlin-futures-guava:0.4.0'
+    compile 'com.github.vjames19.kotlin-futures:kotlin-futures-jdk8:0.4.0'
     compile 'com.github.jkcclemens:khttp:-SNAPSHOT'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     testCompile 'org.jetbrains.spek:spek-api:1.1.5'
     testRuntime 'org.jetbrains.spek:spek-junit-platform-engine:1.1.5'
 }
