@@ -55,9 +55,7 @@ junitPlatform {
 
 test {
     testLogging {
-        // Make sure output from
-        // standard out or error is shown
-        // in Gradle output.
+        // Handy for debugging locally
         showStandardStreams = true
     }
 }

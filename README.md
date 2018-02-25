@@ -18,7 +18,11 @@ kt-yelp supports async HTTP GET requests by employing the [kotlin-futures](https
     // consequently kt-yelp will do to.
     val executor = Executor.getCachedExecutor
     val yelp = Yelp("<YOUR_API_KEY>", executor)
-    val params = mapOf("term" to "food", "latitude" to "30.307182", "longitude" to "-97.755996")
+    val params = mapOf(
+        "term" to "food",
+        "latitude" to "30.307182",
+        "longitude" to "-97.755996"
+    )
     // By virtue of kotlin-futures
     val searchFuture = yelp.search(params).onComplete(
             onFailure = { throwable ->
@@ -29,7 +33,9 @@ kt-yelp supports async HTTP GET requests by employing the [kotlin-futures](https
                 // handle success
                 println("Restaurant data:\n$json")
             }
-    ).handle { data, error -> data ?: "Woops, there was an error:\n\t$error"}
+    ).handle { data, error -> 
+        data ?: "Woops, there was an error:\n\t$error"
+     }
 
     println(searchFuture.get())
  }
@@ -40,7 +46,7 @@ More examples will be added later.
 ## Tests
 
 Testing locally requires the `-Dyelpkey`jvm property set to run.
- `gradle -Dyelpkey=<YOUR_API_KEY test>`
+ `gradle -Dyelpkey=<YOUR_API_KEY> test`
  
 Remote testing done via travis CI. Builds fetch the encrypted key from
  the `.travis.yml` file.
