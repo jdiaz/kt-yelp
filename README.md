@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jdiaz/kt-yelp.svg?branch=master)](https://travis-ci.org/jdiaz/kt-yelp)
+
 # kt-yelp
 
 An async [yelp fushion API](https://www.yelp.com/developers/documentation/v3) client library written in kotlin.
@@ -40,4 +42,5 @@ More examples will be added later.
 Testing locally requires the `-Dyelpkey`jvm property set to run.
  `gradle -Dyelpkey=<YOUR_API_KEY test>`
  
-Remote travis builds fetch the encrypted key from the `.travis.yml` file 
+Remote testing done via travis CI. Builds fetch the encrypted key from
+ the `.travis.yml` file.
