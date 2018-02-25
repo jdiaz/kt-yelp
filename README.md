@@ -7,7 +7,7 @@ An async [yelp fushion API](https://www.yelp.com/developers/documentation/v3) cl
 kt-yelp supports async HTTP GET requests by employing the [kotlin-futures](https://github.com/vjames19/kotlin-futures) library, resulting in a clean API.
 
 ```kotlin
- import io.github.jdiaz.yelp
+ import io.github.jdiaz.yelp.Yelp
  
  fun main(args: Array<String>) {
     // You can provide an instance of ExecutorService of your choosing.
@@ -33,4 +33,5 @@ kt-yelp supports async HTTP GET requests by employing the [kotlin-futures](https
  }
 ```
 
-Also see the tests section
+Tests are require the -Dyelpkey jvm property to run.
+ `gradle -Dyelpkey=<YOUR_API_KEY test`

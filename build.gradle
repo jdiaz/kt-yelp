@@ -53,6 +53,14 @@ junitPlatform {
     platformVersion = "$junit_platform_version"
 }
 
+test {
+    testLogging {
+        // Make sure output from
+        // standard out or error is shown
+        // in Gradle output.
+        showStandardStreams = true
+    }
+}
 
 afterEvaluate {
     def junitPlatformTestTask = tasks.getByName('junitPlatformTest')
@@ -64,6 +72,7 @@ dependencies {
     compile 'com.github.jkcclemens:khttp:-SNAPSHOT'
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    compile "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.0"
 
     testCompile "org.jetbrains.spek:spek-api:$spek_version"
     testCompile "org.amshove.kluent:kluent:1.23"
