@@ -1,6 +1,6 @@
 # kt-yelp
 
-A minimalistic [yelp fushion API](https://www.yelp.com/developers/documentation/v3) async client written in kotlin.
+An async [yelp fushion API](https://www.yelp.com/developers/documentation/v3) client library written in kotlin.
 
 ## Usage
 
@@ -11,17 +11,26 @@ kt-yelp supports async HTTP GET requests by employing the [kotlin-futures](https
  
  fun main(args: Array<String>) {
     // You can provide an instance of ExecutorService of your choosing.
-    // If null is provided, kotlin futures defaults to ForkJoinPool.
-    val yelp = Yelp("<YOUR_API_KEY>", null)
-    val searchFuture = yelp.search(mapOf("term" to "food"))
+    // Alternatively you can pass null instead i.e Yelp(key, null)
+    // kotlin-futures lib will default to ForkJoinPool.commonPool(),
+    // consequently kt-yelp will do to.
+    val executor = Executor.getCachedExecutor
+    val yelp = Yelp("<YOUR_API_KEY>", executor)
+    val params = mapOf("term" to "food", "latitude" to "30.307182", "longitude" to "-97.755996")
     // By virtue of kotlin-futures
-    searchFuture.onComplete({
-        onFailure = { throwable -> 
-            // handle error
-        },
-        onSuccess = { json -> {
-            // handle success
-        }
-    })
+    val searchFuture = yelp.search(params).onComplete(
+            onFailure = { throwable ->
+                // handle error
+                println("Darn... We should log this!")
+            },
+            onSuccess = { json ->
+                // handle success
+                println("Restaurant data:\n$json")
+            }
+    ).handle { data, error -> data ?: "Woops, there was an error:\n\t$error"}
+
+    println(searchFuture.get())
  }
 ```
+
+Also see the tests section
