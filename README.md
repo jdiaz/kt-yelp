@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/jdiaz/kt-yelp.svg?branch=master)](https://travis-ci.org/jdiaz/kt-yelp)
+[![Build Status](https://travis-ci.org/jdiaz/kt-yelp.svg?branch=master)](https://travis-ci.org/jdiaz/kt-yelp) [![Release](https://jitpack.io/v/jdiaz/kt-yelp.svg)](https://jitpack.io/#jdiaz/kt-yelp)
 
 # kt-yelp
 
