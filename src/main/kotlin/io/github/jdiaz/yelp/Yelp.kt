@@ -59,4 +59,3 @@ class Yelp(apiKey: String, val pool: Executor?) {
 }
 
 
-
