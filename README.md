@@ -23,7 +23,7 @@ fun main(args: Array<String>) {
     val yelp = Yelp(System.getProperty("yelpkey"), executor)
     val params = mapOf(
         "term" to "food",
-        "latitue" to "30.307182",
+        "latitude" to "30.307182",
         "longitude" to "-97.755996"
     )
     // By virtue of kotlin-futures
