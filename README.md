@@ -16,9 +16,6 @@ import io.github.jdiaz.yelp.Yelp
  
 fun main(args: Array<String>) {
     // You can provide an instance of ExecutorService of your choosing.
-    // Alternatively you can pass null instead i.e Yelp(key, null)
-    // kotlin-futures lib will default to ForkJoinPool.commonPool(),
-    // consequently kt-yelp will do to.
     val executor = Executors.newCachedThreadPool()
     val yelp = Yelp(System.getProperty("yelpkey"), executor)
     val params = mapOf(
@@ -44,7 +41,7 @@ fun main(args: Array<String>) {
                 "If you triggered this lambda its probably network IO error: $error"
             )
         },
-        onSuccess = { jsonResp->
+        onSuccess = { jsonResp ->
             // Handle success asynchronously
 
             // Careful could just be a Yelp API error message are valid 

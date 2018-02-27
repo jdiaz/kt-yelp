@@ -6,6 +6,7 @@ import org.jetbrains.spek.api.dsl.describe
 import org.jetbrains.spek.api.dsl.it
 import org.jetbrains.spek.api.dsl.given
 import org.amshove.kluent.*
+import java.util.concurrent.Executors
 
 data class SearchSuccessAPIResult(
     val total: Long,
@@ -17,12 +18,13 @@ data class PhoneSuccessAPIResult(val total: Int, val businesses: List<Map<String
 
 object YelpSpek : Spek({
 
-    val yelp = Yelp(System.getProperty("yelpkey"), null)
+    val pool = Executors.newCachedThreadPool()
+    val yelp = Yelp(System.getProperty("yelpkey"), pool)
     val mapper = jacksonObjectMapper()
 
     describe("yelp client") {
 
-        val badYelp = Yelp("XXX", null)
+        val badYelp = Yelp("XXX", pool)
         val tokenInvalid = "TOKEN_INVALID"
 
         given("an invalid API key") {

@@ -5,7 +5,7 @@ import java.util.concurrent.CompletableFuture
 import khttp.get
 import java.util.concurrent.Executor
 
-class Yelp(apiKey: String, val pool: Executor?) {
+class Yelp(apiKey: String, val pool: Executor) {
 
     val API_HOST = "https://api.yelp.com"
     val API_VERSION = "/v3"
@@ -34,15 +34,9 @@ class Yelp(apiKey: String, val pool: Executor?) {
         return request(url, headers, pool)
     }
 
-    private fun request(url: String, headers: Map<String, String>, pool: Executor?): CompletableFuture<String> {
-        return if(pool == null) {
-            Future {
-                get(url, headers).jsonObject.toString()
-            }
-        } else {
-            Future(pool) {
-                get(url, headers).jsonObject.toString()
-            }
+    private fun request(url: String, headers: Map<String, String>, pool: Executor): CompletableFuture<String> {
+        return Future(pool) {
+            get(url, headers).jsonObject.toString()
         }
     }
 
