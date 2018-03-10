@@ -5,7 +5,7 @@
 An async [yelp fushion API](https://www.yelp.com/developers/documentation/v3) client library written in kotlin.
 
 ## How to import
-This library is published in [jitpack](https://jitpack.io/#jdiaz/kt-yelp). Click on the latest version's `Get It` button. Depending on which build system you use in your project you can use either one of the following shown as shown in the link above.
+This library is published in [jitpack](https://jitpack.io/#jdiaz/kt-yelp). Click on the latest version's `Get It` button. Depending on which build system you use in your project you can use either one of the following: (also shown in the link above)
 
 **Gradle**
 ```groovy
