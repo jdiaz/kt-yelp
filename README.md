@@ -4,12 +4,44 @@
 
 An async [yelp fushion API](https://www.yelp.com/developers/documentation/v3) client library written in kotlin.
 
+## How to import
+This library is published in [jitpack](https://jitpack.io/#jdiaz/kt-yelp). Click on the latest version's `Get It` button. Depending on which build system you use in your project you can use either one of the following shown as shown in the link above.
+
+**Gradle**
+```groovy
+repositories {
+  ...
+  maven { url 'https://jitpack.io' }
+}
+
+dependencies {
+  compile 'com.github.jdiaz:kt-yelp:0.2.0'
+}
+```
+
+**Maven**
+```xml
+<repositories>
+  <repository>
+    <id>jitpack.io</id>
+    <url>https://jitpack.io</url>
+  </repository>
+</repositories>
+
+<dependency>
+  <groupId>com.github.jdiaz</groupId>
+  <artifactId>kt-yelp</artifactId>
+  <version>0.2.0</version>
+</dependency>
+
+```
+
 ## Usage
 
 kt-yelp supports async HTTP GET requests by employing the [kotlin-futures](https://github.com/vjames19/kotlin-futures) 
 library, resulting in a clean API. The client support business search by 
 parameters, business id, and phone. Each call returns a compossible Future
-from the `kotlin-futures`.
+from the `kotlin-futures` library.
 
 ```kotlin
 import io.github.jdiaz.yelp.Yelp
